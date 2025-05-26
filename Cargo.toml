@@ -1,0 +1,17 @@
+[package]
+name = "error-repr"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cfg-match = "0.2.1"
+
+[features]
+error-track_caller = []
+alloc = []
+std = ["alloc"]
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = [
+    'cfg(target_os, values("lilium"))',
+] }
